@@ -2,5 +2,80 @@ body{
     margin-bottom:0;
     margin-top:0;
     margin-right: 20px;
-    font-family: Srbija Sans, sans-serif;
+    background-color: #f7f9fb;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+   
+}
+.border {
+    border-radius: 10px;
+}
+.menu
+{
+    margin-left: 25px;
+}
+.menu2 {
+    padding-bottom: 35px;
+}
+/* @font-face {
+    font-family: Rubik, sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+    font-weight: normal;
+    font-style: normal;
+  } */
+h2 {
+    font-size: 18px;
+    border: solid 2px;
+    border-radius: 10px;
+    border-color: rgb(126, 177, 248);
+    width:75%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: rgb(218, 234, 255);
+  }
+ input:hover {
+    cursor: pointer;
+  }
+
+  input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--form-background);
+
+    color: rgb(55, 131, 236);
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.2em solid currentColor;
+    border-radius: 50%;
+    transform: translateY(0.08em);
+
+    place-content: center;
+  }
+  
+  input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+  }
+  
+  input[type="radio"]:checked::before {
+    transform: scale(1);
+  }
+  
+  input[type="radio"]:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+  } 
+
+
+label{
+    font-size: 17px;
+    float:left;
+    margin:0 2.5%;
+    background:rgba(255,255,255,.2);
+    border-radius:50%;
+    cursor:pointer;
 }

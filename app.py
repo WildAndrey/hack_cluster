@@ -20,17 +20,25 @@ app = Dash(__name__)
 
 app.layout = html.Div([
     html.Div(children=[
-    html.H2(['Фильтр по типу участия']),
-    dcc.RadioItems(['Все','Команда','Одиночка'], id = "status", value = 'Все'),
-    html.H2(['Фильтр по полу']),
-    dcc.RadioItems(['Все','Мужской','Женский'], id = 'sex', value = 'Все'),
-    html.H2(['Интервал по возрасту']),
-    html.Div([dcc.RangeSlider(1, 9, 1, count=1, value=[1, 9], id = 'age')],
+    html.H2(['Фильтр по типу участия'],className='menu text'),
+    dcc.RadioItems([
+        {'label':'Все', 'value':'Все'},
+        {'label':'Команда', 'value':'Команда'},
+        {'label':'Одиночка', 'value':'Одиночка'},
+
+        ],
+        className='menu menu2', id = "status", value = 'Все'),
+    html.H2(['Фильтр по полу'],className='menu text'),
+    dcc.RadioItems(['Все','Мужской','Женский'],className='menu menu2', id = 'sex', value = 'Все'),
+    html.H2(['Интервал по возрасту'],className='menu text'),
+    html.Div([dcc.RangeSlider(1, 9, 1, count=1, value=[1, 9], id = 'age',className='menu slider')],
              style={'width': '90%', 'marginLeft':'-15px'})
     ],style={'width':'23%','height':'100%','position':'fixed',
-            'borderRight':'2px solid'}),
+            '-webkit-box-shadow': '5px 0px 5px -3px rgba(50, 50, 50, 0.3)',
+            '-moz-box-shadow':    '5px 0px 5px -3px rgba(50, 50, 50, 0.3)',
+            'box-shadow':         '5px 0px 5px -3px rgba(50, 50, 50, 0.3)'}),
     dcc.Tabs([
-        dcc.Tab(label='Итоговый балл', children=[
+        dcc.Tab(label='Итоговый балл', className='border', children=[
             html.Div([
                 dcc.Dropdown(df['Категория'].dropna().unique(), id = 'categories', value = ['Студент', 'Инженер'], multi=True),
                 dcc.Graph(id='category_graph'),            
@@ -42,7 +50,7 @@ app.layout = html.Div([
                 dcc.Graph(id='prof_graph')
             ], style={'width':'75%', 'marginLeft':'25%'}),
         ]),
-        dcc.Tab(label="Количество участников", children=[
+        dcc.Tab(label="Количество участников", className='border',children=[
             html.Div([
                 dcc.Dropdown(df['Категория'].dropna().unique(),id = 'categories2', value = ['Студент', 'Инженер'], multi=True),
                 dcc.Graph(id='category_graph2'),      
@@ -54,7 +62,7 @@ app.layout = html.Div([
                 dcc.Graph(id='prof_graph2'),
             ], style={'width':'75%', 'marginLeft':'25%'})
         ]),
-        dcc.Tab(label="Интервал по возрасту", children=[
+        dcc.Tab(label="Интервал по возрасту", className='border', children=[
             html.Div([
                 dcc.Dropdown(df['Категория'].dropna().unique(),id = 'categories3', value = ['Студент', 'Инженер'], multi=True),
                 dcc.Graph(id='category_graph3'),
@@ -66,7 +74,7 @@ app.layout = html.Div([
                 dcc.Graph(id='prof_graph3'),
             ], style={'width':'75%', 'marginLeft':'25%'})
         ]),
-        dcc.Tab(label="Кластеризация", children=[
+        dcc.Tab(label="Кластеризация", className='border', children=[
             html.Div([    
                 html.Div([dcc.Dropdown([1,2],id='help')],style={'display':'none'}),
                 html.Div(['This page is still in beta.'],style={'marginTop':'20px', 'color':'red'}),
